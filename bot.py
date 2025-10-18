@@ -9,7 +9,11 @@ import asyncio
 OWNER_ID = 595959200  # <-- bu yerga o'zingizning Telegram ID ni yozasiz
 
 # 🔑 Bot tokenini atrof-muhitdan olish (Render uchun)
-TOKEN = os.getenv("8361637993:AAGJATF9ZLu9HskMGamt9nktveFMazNuPy8")
+TOKEN = os.getenv("BOT_TOKEN")
+
+# diagnostika (faqat qisqa vaqtga, tokenni chop etmang)
+if TOKEN is None:
+    raise SystemExit("ENV ERROR: BOT_TOKEN is not set in environment variables.")
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
