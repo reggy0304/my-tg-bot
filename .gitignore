@@ -1,0 +1,15 @@
+# Virtual environment papkasi
+venv/
+
+# Maxfiy ma'lumotlar (token va ID saqlanadigan)
+.env
+
+# Ovozlar va bazalar
+voices/
+voices.json
+
+# Cache va vaqtinchalik fayllar
+__pycache__/
+*.pyc
+*.pyo
+*.log
