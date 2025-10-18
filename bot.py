@@ -76,3 +76,25 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+import os
+from aiohttp import web
+
+async def handle(request):
+    return web.Response(text="Bot ishlayapti!")
+
+async def start_web():
+    app = web.Application()
+    app.router.add_get("/", handle)
+    port = int(os.getenv("PORT", 10000))
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+
+async def main():
+    print("Bot ishga tushdi...")
+    await asyncio.gather(
+        dp.start_polling(bot),
+        start_web()
+    )
